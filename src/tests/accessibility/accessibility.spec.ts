@@ -1,9 +1,8 @@
 import { expect } from "@playwright/test";
 import { test } from "../../hooks";
-import { logger } from "../../utils/logger";
 
 test.describe("Accessibility Tests", () => {
-  test("page should have no title missing", async ({ page }) => {
+  test("page should have no title missing", async ({ page, logger }) => {
     logger.step("Navigating to Playwright homepage");
     await page.goto("https://playwright.dev");
 
@@ -14,7 +13,7 @@ test.describe("Accessibility Tests", () => {
     logger.success("Page title is not empty ✅");
   });
 
-  test("logo should have alt text", async ({ page }) => {
+  test("logo should have alt text", async ({ page, logger }) => {
     logger.step("Navigating to Playwright homepage");
     await page.goto("https://playwright.dev");
 
@@ -24,7 +23,10 @@ test.describe("Accessibility Tests", () => {
     logger.success("Playwright logo is visible with alt text ✅");
   });
 
-  test("skip link should be visible for keyboard users", async ({ page }) => {
+  test("skip link should be visible for keyboard users", async ({
+    page,
+    logger,
+  }) => {
     logger.step("Navigating to Playwright homepage");
     await page.goto("https://playwright.dev");
 

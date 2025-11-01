@@ -7,7 +7,7 @@ import {
   transports,
   Logger as WinstonBaseLogger,
 } from "winston";
-import { LogOptions } from "@/types";
+import { ILogOptions } from "@/types";
 
 export class WinstonLogger {
   private logger: WinstonBaseLogger;
@@ -45,33 +45,34 @@ export class WinstonLogger {
         new transports.File({ filename: this.logFile }),
       ],
     });
+    this.logger.info("LOGGER INITIALISED");
   }
 
-  private formatMessage(message: string, options?: LogOptions): string {
+  private formatMessage(message: string, options?: ILogOptions): string {
     return options?.context ? `[${options.context}] ${message}` : message;
   }
 
-  info(message: string, options?: LogOptions) {
+  info(message: string, options?: ILogOptions) {
     this.logger.info(this.formatMessage(message, options));
   }
 
-  warn(message: string, options?: LogOptions) {
+  warn(message: string, options?: ILogOptions) {
     this.logger.warn(this.formatMessage(message, options));
   }
 
-  error(message: string, options?: LogOptions) {
+  error(message: string, options?: ILogOptions) {
     this.logger.error(this.formatMessage(message, options));
   }
 
-  debug(message: string, options?: LogOptions) {
+  debug(message: string, options?: ILogOptions) {
     this.logger.debug(this.formatMessage(message, options));
   }
 
-  success(message: string, options?: LogOptions) {
+  success(message: string, options?: ILogOptions) {
     this.logger.info(`SUCCESS - ${this.formatMessage(message, options)}`);
   }
 
-  step(message: string, options?: LogOptions) {
+  step(message: string, options?: ILogOptions) {
     this.logger.debug(`STEP - ${this.formatMessage(message, options)}`);
   }
 

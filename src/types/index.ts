@@ -1,10 +1,9 @@
-export type EnvConfig = {
+export type IEnvConfig = {
   NODE_ENV: string;
   HEADLESS?: boolean;
 };
+export type ILogSystem = "winston" | "log4js";
 
-export type LogSystem = "winston" | "log4js";
-
-export type LogOptions = {
+export type ILogOptions = {
   context?: string;
 };

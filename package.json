@@ -7,7 +7,7 @@
     "test": "npx playwright test --config=./src/config/playwright.config.ts",
     "test:headless": "set HEADLESS=true && npx playwright test --config=./src/config/playwright.config.ts",
     "test:ui": "set HEADLESS=true && npx playwright test --config=./src/config/playwright.config.ts --ui",
-    "test:tag": "set HEADLESS=true && npx playwright test --config=./src/config/playwright.config.ts --grep fast",
+    "test:tag": "set HEADLESS=true && npx playwright test --config=./src/config/playwright.config.ts --grep",
     "report:html": "npx playwright show-report ./reports/html",
     "report:allure:generate": "allure generate ./reports/allure-results --clean -o ./reports/allure-report",
     "report:allure:open": "npm run report:allure:generate && allure open ./reports/allure-report",

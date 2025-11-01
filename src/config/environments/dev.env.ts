@@ -1,6 +1,6 @@
-import { EnvConfig } from "@/types";
+import { IEnvConfig } from "@/types";
 
 export default {
   NODE_ENV: "development",
   HEADLESS: false,
-} as EnvConfig;
+} as IEnvConfig;

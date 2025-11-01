@@ -3,15 +3,15 @@ import devEnv from "./environments/dev.env";
 import stagingEnv from "./environments/staging.env";
 import prodEnv from "./environments/prod.env";
 import { devices } from "@playwright/test";
-import { EnvConfig, LogSystem } from "@/types";
+import { IEnvConfig, ILogSystem } from "@/types";
 
 const env = process.env.NODE_ENV || "development";
 
 const RUN_ID = crypto.randomUUID().substring(0, 8);
-const LOG_SYSTEM: LogSystem =
+const LOG_SYSTEM: ILogSystem =
   process.env.LOG_SYSTEM === "log4js" ? "log4js" : "winston";
 
-let config: EnvConfig;
+let config: IEnvConfig;
 
 switch (env) {
   case "production":
