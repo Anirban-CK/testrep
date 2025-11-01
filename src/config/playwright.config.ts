@@ -1,7 +1,7 @@
-import { defineConfig, devices } from "@playwright/test";
+import { defineConfig } from "@playwright/test";
 import path from "path";
+import env from "./env.config";
 
-const runId = crypto.randomUUID().substring(0, 8);
 export default defineConfig({
   testDir: path.join(__dirname, "../tests"),
   timeout: 60 * 1000,
@@ -11,7 +11,11 @@ export default defineConfig({
     [
       "html",
       {
-        outputFolder: path.join(process.cwd(), "reports/html", `run-${runId}`),
+        outputFolder: path.join(
+          process.cwd(),
+          "reports/html",
+          `run-${env.RUN_ID}`
+        ),
       },
     ],
     [
@@ -20,7 +24,7 @@ export default defineConfig({
         outputFolder: path.join(
           process.cwd(),
           "reports/allure-results",
-          `run-${runId}`
+          `run-${env.RUN_ID}`
         ),
       },
     ],
@@ -33,12 +37,6 @@ export default defineConfig({
     trace: "on-first-retry",
   },
 
-  projects: [
-    {
-      name: "chromium",
-      use: { ...devices["Desktop Chrome"] },
-    },
-  ],
-
+  projects: env.PROJECTS,
   outputDir: path.join(process.cwd(), "artifacts/test-output"),
 });

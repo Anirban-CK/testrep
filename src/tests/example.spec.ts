@@ -11,7 +11,7 @@ test("has title", { tag: "@fast" }, async ({ page }) => {
   logger.success("Page title verification passed ✅");
 });
 
-test("get started link", async ({ page }) => {
+test("get started link", { tag: "@fast" }, async ({ page }) => {
   logger.step("Navigating to Playwright homepage");
   await page.goto("https://playwright.dev/");
 

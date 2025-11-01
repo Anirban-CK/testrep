@@ -10,7 +10,8 @@
     "test:tag": "HEADLESS=true npx playwright test --config=./src/config/playwright.config.ts --grep fast",
     "report:html": "npx playwright show-report ./reports/html",
     "report:allure:generate": "allure generate ./reports/allure-results --clean -o ./reports/allure-report",
-    "report:allure:open": "npm run report:allure:generate && allure open ./reports/allure-report"
+    "report:allure:open": "npm run report:allure:generate && allure open ./reports/allure-report",
+    "clean:dir": "rm -rf ./allure-results/* ./reports/allure-report/* ./reports/allure-results/* ./reports/html/* ./logs/* ./artifacts/*"
   },
   "keywords": [],
   "author": "",
