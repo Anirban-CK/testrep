@@ -184,3 +184,4 @@ artifacts/*
 # But do not ignore this .gitkeep file
 !artifacts/.gitkeep
 
+allure-results/*
