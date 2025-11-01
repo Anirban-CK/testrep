@@ -2,13 +2,28 @@
   "name": "demo",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "base-test": "npx playwright test",
+    "test": "npx playwright test --config=./src/config/playwright.config.ts",
+    "test:headless": "HEADLESS=true npx playwright test --config=./src/config/playwright.config.ts",
+    "test:ui": "HEADLESS=true npx playwright test --config=./src/config/playwright.config.ts --ui",
+    "test:tag": "HEADLESS=true npx playwright test --config=./src/config/playwright.config.ts --grep fast",
+    "report:html": "npx playwright show-report ./reports/html",
+    "report:allure:generate": "allure generate ./reports/allure-results --clean -o ./reports/allure-report",
+    "report:allure:open": "npm run report:allure:generate && allure open ./reports/allure-report"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
     "@playwright/test": "^1.56.1",
-    "@types/node": "^24.9.1"
+    "@types/node": "^24.9.1",
+    "allure-commandline": "^2.34.1",
+    "allure-playwright": "^3.4.2"
+  },
+  "dependencies": {
+    "log4js": "^6.9.1",
+    "winston": "^3.18.3"
   }
 }
