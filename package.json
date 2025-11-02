@@ -1,30 +1,38 @@
 {
-  "name": "demo",
+  "name": "baseple",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "base-test": "npx playwright test",
-    "test": "npx playwright test --config=./src/config/playwright.config.ts",
-    "test:headless": "set HEADLESS=true && npx playwright test --config=./src/config/playwright.config.ts",
-    "test:ui": "set HEADLESS=true && npx playwright test --config=./src/config/playwright.config.ts --ui",
-    "test:tag": "set HEADLESS=true && npx playwright test --config=./src/config/playwright.config.ts --grep",
-    "report:html": "npx playwright show-report ./reports/html",
-    "report:allure:generate": "allure generate ./reports/allure-results --clean -o ./reports/allure-report",
-    "report:allure:open": "npm run report:allure:generate && allure open ./reports/allure-report",
-    "clean:dir": "rm -rf ./allure-results/* ./reports/allure-report/* ./reports/allure-results/* ./reports/html/* ./logs/* ./artifacts/*"
+    "test": "playwright test",
+    "test:dev": "ENV=dev playwright test",
+    "test:staging": "ENV=staging playwright test",
+    "test:prod": "ENV=prod playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:ui": "playwright test --ui",
+    "test:tag": "playwright test --grep",
+    "allure:generate": "allure generate ./allure-results --clean -o ./allure-report",
+    "allure:open": "allure open ./allure-report",
+    "allure:serve": "allure serve ./allure-results",
+    "report": "npm run allure:generate && npm run allure:open",
+    "clean": "rm -rf allure-results allure-report test-results logs/*.log"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "devDependencies": {
     "@playwright/test": "^1.56.1",
-    "@types/node": "^24.9.1",
+    "@types/node": "^24.9.2",
+    "@types/uuid": "^10.0.0",
     "allure-commandline": "^2.34.1",
-    "allure-playwright": "^3.4.2"
+    "allure-playwright": "^3.4.2",
+    "dotenv": "^17.2.3",
+    "typescript": "^5.9.3",
+    "winston": "^3.18.3",
+    "winston-daily-rotate-file": "^5.0.0"
   },
   "dependencies": {
-    "log4js": "^6.9.1",
-    "winston": "^3.18.3"
+    "uuid": "^13.0.0"
   }
 }

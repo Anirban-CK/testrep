@@ -7,6 +7,15 @@ node_modules/
 /playwright/.cache/
 /playwright/.auth/
 
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+
 # Created by https://www.toptal.com/developers/gitignore/api/node
 # Edit at https://www.toptal.com/developers/gitignore?templates=node
 
@@ -160,28 +169,5 @@ dist
 
 *.DS_Store
 
-# Ignore everything in the reports/allure-report folder
-reports/allure-report/*
-
-# But do not ignore this .gitkeep file
-!reports/allure-report/.gitkeep
-
-# Ignore everything in the reports/allure-results folder
-reports/allure-results/*
-
-# But do not ignore this .gitkeep file
-!reports/allure-results/.gitkeep
-
-# Ignore everything in the reports/html folder
-reports/html/*
-
-# But do not ignore this .gitkeep file
-!reports/html/.gitkeep
-
-# Ignore everything in the Artifacts folder
-artifacts/*
-
-# But do not ignore this .gitkeep file
-!artifacts/.gitkeep
-
-allure-results/*
+allure-report
+allure-results

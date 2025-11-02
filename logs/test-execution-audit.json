@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "E:\\baseple\\logs\\test-execution-audit.json",
+    "files": [
+        {
+            "date": 1762023514787,
+            "name": "E:\\baseple\\logs\\test-execution-2025-11-02.log",
+            "hash": "07e7c43d5843d365e9e98fa292914e2438833c7f1cb23f16d74263386257eeac"
+        }
+    ],
+    "hashType": "sha256"
+}
