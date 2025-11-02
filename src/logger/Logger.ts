@@ -8,43 +8,43 @@ class Logger {
     this.logger = winston.createLogger(LoggerSetup);
   }
 
-  info(message: string, meta?: unknown[]) {
-    this.logger.info(message, meta);
+  info(message: string): void {
+    this.logger.info(message);
   }
 
-  error(message: string, meta?: unknown[]) {
-    this.logger.error(message, meta);
+  error(message: string): void {
+    this.logger.error(message);
   }
 
-  warn(message: string, meta?: unknown[]) {
-    this.logger.warn(message, meta);
+  warn(message: string): void {
+    this.logger.warn(message);
   }
 
-  debug(message: string, meta?: unknown[]) {
-    this.logger.debug(message, meta);
+  debug(message: string): void {
+    this.logger.debug(message);
   }
 
-  step(message: string, meta?: unknown[]) {
-    this.logger.info(`🔹 STEP: ${message}`, meta);
+  step(message: string): void {
+    this.logger.info(`🔹 STEP: ${message}`);
   }
 
-  testStart(testName: string) {
+  testStart(testName: string): void {
     this.logger.info(`${"=".repeat(50)}`);
     this.logger.info(`🧪 TEST STARTED: ${testName}`);
   }
 
-  testEnd(testName: string, status: "PASSED" | "FAILED") {
+  testEnd(testName: string, status: "PASSED" | "FAILED"): void {
     const emoji = status === "PASSED" ? "✅" : "❌";
     this.logger.info(`${emoji} TEST ${status}: ${testName}`);
     this.logger.info(`${"=".repeat(50)}`);
   }
-  setup(msg: string) {
+  setup(msg: string): void {
     this.logger.warn(`${"#".repeat(50)}`);
     this.logger.warn(`${msg}`);
     this.logger.warn(`${"#".repeat(50)}`);
   }
 
-  teardown(msg: string) {
+  teardown(msg: string): void {
     this.logger.warn(`${"#".repeat(50)}`);
     this.logger.warn(`${msg}`);
     this.logger.warn(`${"#".repeat(50)}`);
