@@ -5,6 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "playwright test",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write \"**/*.ts\"",
+    "format:check": "prettier --check \"**/*.ts\"",
     "test:dev": "ENV=dev playwright test",
     "test:staging": "ENV=staging playwright test",
     "test:prod": "ENV=prod playwright test",
@@ -18,25 +23,48 @@
     "report": "npm run allure:generate && npm run allure:open",
     "clean": "rm -rf allure-results allure-report test-results logs/*.log",
     "update-jsdoc": "ts-node scripts/update-jsdoc.ts",
-    "prepare": "husky install"
+    "prepare": "husky",
+    "commit": "npm run typecheck && npm run lint:fix && npm run format"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "npm run commit"
+    ]
+  },
+  "author": {
+    "name": "Anirban Mishra"
+  },
   "devDependencies": {
+    "@eslint/js": "^9.39.0",
     "@playwright/test": "^1.56.1",
+    "@types/eslint__js": "^8.42.3",
     "@types/node": "^24.9.2",
     "@types/uuid": "^10.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.46.2",
+    "@typescript-eslint/parser": "^8.46.2",
     "allure-commandline": "^2.34.1",
     "allure-playwright": "^3.4.2",
     "dotenv": "^17.2.3",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-playwright": "^2.3.0",
+    "eslint-plugin-prettier": "^5.5.4",
     "husky": "^9.1.7",
+    "lint-staged": "^16.2.6",
+    "prettier": "3.6.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.2",
+    "uuid": "^13.0.0",
     "winston": "^3.18.3",
     "winston-daily-rotate-file": "^5.0.0"
-  },
-  "dependencies": {
-    "uuid": "^13.0.0"
   }
 }

@@ -1,9 +1,9 @@
-import { FullConfig } from "@playwright/test";
-import { logger } from "../logger/Logger";
+import { logger } from '../logger/Logger'
 
-const globalSetup = async (config: FullConfig) => {
-  logger.setup("🔧 Running Global Setup...");
-  return async () => {};
-};
+// const globalSetup = async (config: FullConfig) => {
+const globalSetup = async () => {
+  logger.setup('🔧 Running Global Setup...')
+  return async () => {}
+}
 
-export default globalSetup;
+export default globalSetup
