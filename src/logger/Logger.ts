@@ -8,23 +8,23 @@ class Logger {
     this.logger = winston.createLogger(LoggerSetup);
   }
 
-  info(message: string, meta?: any) {
+  info(message: string, meta?: unknown[]) {
     this.logger.info(message, meta);
   }
 
-  error(message: string, meta?: any) {
+  error(message: string, meta?: unknown[]) {
     this.logger.error(message, meta);
   }
 
-  warn(message: string, meta?: any) {
+  warn(message: string, meta?: unknown[]) {
     this.logger.warn(message, meta);
   }
 
-  debug(message: string, meta?: any) {
+  debug(message: string, meta?: unknown[]) {
     this.logger.debug(message, meta);
   }
 
-  step(message: string, meta?: any) {
+  step(message: string, meta?: unknown[]) {
     this.logger.info(`🔹 STEP: ${message}`, meta);
   }
 

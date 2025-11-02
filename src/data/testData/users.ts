@@ -20,8 +20,7 @@ export const users = {
     {
       username: "invalid_user",
       password: "wrong_password",
-      expectedError:
-        "Epic sadface: Username and password do not match any user in this service",
+      expectedError: "Epic sadface: Username and password do not match any user in this service",
     },
   ],
 };
