@@ -21,7 +21,7 @@ test.describe("Login Functionality", { tag: ["@login"] }, () => {
    * @description TC001 - Should login successfully with valid credentials
    * @author Anirban Mishra <anirban.mishra@cloudkaptan.com>
    * @createdBy   Anirban Mishra on 2025-11-01
-   * @modifiedBy  John Doe on 2025-11-02
+   * @modifiedBy  ANIRBAN MISHRA <anirbanmishra7005@gmail.com> on 2025-11-02
    */
   test("TC001 - Should login successfully with valid credentials", async ({
     loginPage,
@@ -52,7 +52,7 @@ test.describe("Login Functionality", { tag: ["@login"] }, () => {
    * @description TC002 - Should show error for locked out user
    * @author Anirban Mishra <anirban.mishra@cloudkaptan.com>
    * @createdBy   Anirban Mishra on 2025-11-01
-   * @modifiedBy  John Doe on 2025-11-02
+   * @modifiedBy  ANIRBAN MISHRA <anirbanmishra7005@gmail.com> on 2025-11-02
    */
   test("TC002 - Should show error for locked out user", async ({
     loginPage,
@@ -83,7 +83,7 @@ test.describe("Login Functionality", { tag: ["@login"] }, () => {
    * @description TC003 - Should show error for invalid credentials
    * @author Anirban Mishra <anirban.mishra@cloudkaptan.com>
    * @createdBy   Anirban Mishra on 2025-11-01
-   * @modifiedBy  John Doe on 2025-11-02
+   * @modifiedBy a
    */
   test("TC003 - Should show error for invalid credentials", async ({
     loginPage,
@@ -112,7 +112,7 @@ test.describe("Login Functionality", { tag: ["@login"] }, () => {
    * @description TC004 - Should show error when username is empty
    * @author Anirban Mishra <anirban.mishra@cloudkaptan.com>
    * @createdBy   Anirban Mishra on 2025-11-01
-   * @modifiedBy  John Doe on 2025-11-02
+   * @modifiedBy  ANIRBAN MISHRA <anirbanmishra7005@gmail.com> on 2025-11-02
    */
   test("TC004 - Should show error when username is empty", async ({
     loginPage,
