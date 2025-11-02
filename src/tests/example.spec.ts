@@ -1,17 +1,16 @@
 import { expect } from "@playwright/test";
 import { test } from "../hooks";
-import { logger } from "../utils/logger";
 
-test("has title", { tag: "@fast" }, async ({ page }) => {
+test("has title", { tag: "@fast" }, async ({ page, logger }) => {
   logger.step("Navigating to Playwright homepage");
   await page.goto("https://playwright.dev/");
 
-  logger.info("Checking page title contains 'Playwright'");
+  logger.info("Checking page title contains 'P laywright'");
   await expect(page).toHaveTitle(/Playwright/);
   logger.success("Page title verification passed ✅");
 });
 
-test("get started link", { tag: "@fast" }, async ({ page }) => {
+test("get started link", { tag: "@fast" }, async ({ page, logger }) => {
   logger.step("Navigating to Playwright homepage");
   await page.goto("https://playwright.dev/");
 

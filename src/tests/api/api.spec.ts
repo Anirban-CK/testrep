@@ -1,9 +1,8 @@
 import { expect } from "@playwright/test";
 import { test } from "../../hooks";
-import { logger } from "../../utils/logger";
 
 test.describe("API Tests", () => {
-  test("GET request should return 200", async ({ request }) => {
+  test("GET request should return 200", async ({ request, logger }) => {
     logger.step("Sending GET request to GitHub API root");
     const response = await request.get("https://api.github.com");
     logger.info(`Response status: ${response.status()}`);
@@ -12,7 +11,7 @@ test.describe("API Tests", () => {
     logger.success("GET request returned 200 ✅");
   });
 
-  test("GET Playwright repo details", async ({ request }) => {
+  test("GET Playwright repo details", async ({ request, logger }) => {
     logger.step("Fetching Playwright repository details from GitHub API");
     const response = await request.get(
       "https://api.github.com/repos/microsoft/playwright"
@@ -24,7 +23,7 @@ test.describe("API Tests", () => {
     logger.success("Repository name is correct ✅");
   });
 
-  test("Check user endpoint rate limit header", async ({ request }) => {
+  test("Check user endpoint rate limit header", async ({ request, logger }) => {
     logger.step("Checking rate limit header for GitHub user endpoint");
     const response = await request.get("https://api.github.com/users/octocat");
     const headers = response.headers();

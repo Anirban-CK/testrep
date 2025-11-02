@@ -1,9 +1,8 @@
 import { expect } from "@playwright/test";
 import { test } from "../../hooks";
-import { logger } from "../../utils/logger";
 
 test.describe("Performance Tests", () => {
-  test("homepage loads under 3 seconds", async ({ page }) => {
+  test("homepage loads under 3 seconds", async ({ page, logger }) => {
     logger.step("Measuring homepage load time");
     const start = Date.now();
     await page.goto("https://playwright.dev");
@@ -14,7 +13,7 @@ test.describe("Performance Tests", () => {
     logger.success("Homepage load time is under 3 seconds ✅");
   });
 
-  test("navigation is quick", async ({ page }) => {
+  test("navigation is quick", async ({ page, logger }) => {
     logger.step("Measuring navigation speed to Get Started page");
     await page.goto("https://playwright.dev");
     const start = Date.now();
@@ -26,7 +25,7 @@ test.describe("Performance Tests", () => {
     logger.success("Navigation completed in under 3 seconds ✅");
   });
 
-  test("page renders the docs content", async ({ page }) => {
+  test("page renders the docs content", async ({ page, logger }) => {
     logger.step("Checking if docs content renders correctly");
     await page.goto("https://playwright.dev/docs/intro");
     const heading = await page.locator("h1");

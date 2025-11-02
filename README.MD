@@ -4,6 +4,13 @@ This document explains the structure of the Playwright testing framework project
 
 ---
 
+### Headless Setup
+
+```
+set HEADLESS=true WINDOWS
+HEADLESS=true # MAC LINUX
+```
+
 ## Root Directory
 
 ### Files:

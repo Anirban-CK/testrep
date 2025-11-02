@@ -1,9 +1,8 @@
 import { expect } from "@playwright/test";
 import { test } from "../../hooks";
-import { logger } from "../../utils/logger";
 
 test.describe("Regression Tests", () => {
-  test("verify homepage title", async ({ page }) => {
+  test("verify homepage title", async ({ page, logger }) => {
     logger.step("Navigating to the homepage");
     await page.goto("https://playwright.dev");
 
@@ -12,7 +11,7 @@ test.describe("Regression Tests", () => {
     logger.success("Homepage title verified ✅");
   });
 
-  test("verify navbar links exist", async ({ page }) => {
+  test("verify navbar links exist", async ({ page, logger }) => {
     logger.step("Opening homepage to verify navbar links");
     await page.goto("https://playwright.dev");
 
@@ -24,7 +23,7 @@ test.describe("Regression Tests", () => {
     logger.success("Navbar links are present ✅");
   });
 
-  test("verify footer visibility", async ({ page }) => {
+  test("verify footer visibility", async ({ page, logger }) => {
     logger.step("Checking if footer is visible on the homepage");
     await page.goto("https://playwright.dev");
 
