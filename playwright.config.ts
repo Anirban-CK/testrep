@@ -1,14 +1,14 @@
-import { defineConfig, devices } from '@playwright/test'
-import dotenv from 'dotenv'
+import { defineConfig, devices } from "@playwright/test";
+import dotenv from "dotenv";
 
-dotenv.config()
+dotenv.config();
 
 export default defineConfig({
-  testDir: './src/tests',
+  testDir: "./src/tests",
 
   // Add global setup and teardown
-  globalSetup: require.resolve('./src/config/global-setup.ts'),
-  globalTeardown: require.resolve('./src/config/global-teardown.ts'),
+  globalSetup: require.resolve("./src/config/global-setup.ts"),
+  globalTeardown: require.resolve("./src/config/global-teardown.ts"),
 
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
@@ -16,25 +16,25 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
 
   reporter: [
-    ['html', { outputFolder: 'test-results/html-report' }],
-    ['json', { outputFile: 'test-results/results.json' }],
-    ['junit', { outputFile: 'test-results/junit.xml' }],
+    ["html", { outputFolder: "test-results/html-report" }],
+    ["json", { outputFile: "test-results/results.json" }],
+    ["junit", { outputFile: "test-results/junit.xml" }],
     [
-      'allure-playwright',
+      "allure-playwright",
       {
-        outputFolder: 'allure-results',
+        outputFolder: "allure-results",
         detail: true,
         suiteTitle: true,
       },
     ],
-    ['list'],
+    ["list"],
   ],
 
   use: {
     baseURL: process.env.BASE_URL,
-    trace: 'retain-on-failure',
-    screenshot: 'only-on-failure',
-    video: 'retain-on-failure',
+    trace: "retain-on-failure",
+    screenshot: "only-on-failure",
+    video: "retain-on-failure",
     headless: true,
     viewport: { width: 1920, height: 1080 },
     actionTimeout: 15000,
@@ -43,8 +43,8 @@ export default defineConfig({
 
   projects: [
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      name: "chromium",
+      use: { ...devices["Desktop Chrome"] },
     },
     // {
     //   name: "firefox",
@@ -56,5 +56,5 @@ export default defineConfig({
     // },
   ],
 
-  outputDir: 'test-results/artifacts',
-})
+  outputDir: "test-results/artifacts",
+});

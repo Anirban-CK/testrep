@@ -1,8 +1,8 @@
-import { logger } from '../logger/Logger'
+import { logger } from "../logger/Logger";
 
 // const globalTeardown = async (config: FullConfig) => {
 const globalTeardown = async () => {
-  logger.teardown('🧹 Cleaning up test session...')
-}
+  logger.teardown("🧹 Cleaning up test session...");
+};
 
-export default globalTeardown
+export default globalTeardown;
