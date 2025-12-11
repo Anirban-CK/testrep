@@ -172,3 +172,6 @@ dist
 allure-report
 allure-results
 logs/*
+
+# Test Execution Audit File for tracking - 
+*test-execution-audit.json
